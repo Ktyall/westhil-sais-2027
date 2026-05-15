@@ -1,0 +1,1841 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Westhill Institute · SAIS Self-Study 2027 — Committee Hub</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300;9..144,400;9..144,500;9..144,600;9..144,700;9..144,800&family=Inter+Tight:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root {
+  --navy:        #0a2342;
+  --navy-deep:   #061629;
+  --navy-soft:   #1a3a63;
+  --gold:        #b08d3a;
+  --gold-bright: #d4ac4a;
+  --cream:       #f6f1e7;
+  --cream-deep:  #ebe2cf;
+  --ink:         #15171c;
+  --ink-soft:    #3a3f47;
+  --line:        #d8cfb8;
+  --line-soft:   #ece4d0;
+  --white:       #fcfaf5;
+  --red:         #9a2a2a;
+  --green:       #2e5d3a;
+}
+
+*, *::before, *::after { box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  margin: 0;
+  font-family: 'Inter Tight', -apple-system, system-ui, sans-serif;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 1.6;
+  color: var(--ink);
+  background: var(--cream);
+  background-image:
+    radial-gradient(circle at 20% 10%, rgba(176,141,58,0.04) 0%, transparent 40%),
+    radial-gradient(circle at 80% 80%, rgba(10,35,66,0.03) 0%, transparent 40%);
+}
+
+/* paper grain */
+body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 1;
+  opacity: 0.35;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 0.05 0 0 0 0 0.05 0 0 0 0 0.05 0 0 0 0.06 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  mix-blend-mode: multiply;
+}
+
+/* ===== TOP NAV ===== */
+.topnav {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: rgba(246, 241, 231, 0.92);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border-bottom: 1px solid var(--line);
+}
+.topnav-inner {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 14px 32px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+}
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  text-decoration: none;
+  color: var(--navy);
+}
+.brand-mark {
+  width: 32px;
+  height: 32px;
+  background: var(--navy);
+  color: var(--cream);
+  display: grid;
+  place-items: center;
+  font-family: 'Fraunces', serif;
+  font-weight: 700;
+  font-size: 14px;
+  letter-spacing: 0.5px;
+}
+.brand-text {
+  font-family: 'Fraunces', serif;
+  font-weight: 600;
+  font-size: 16px;
+  letter-spacing: -0.01em;
+}
+.brand-sub {
+  font-size: 11px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--ink-soft);
+  margin-top: 1px;
+}
+.nav-links {
+  display: flex;
+  gap: 4px;
+  align-items: center;
+}
+.nav-links a {
+  color: var(--ink);
+  text-decoration: none;
+  font-size: 13px;
+  font-weight: 500;
+  padding: 8px 14px;
+  border-radius: 2px;
+  transition: all 0.15s ease;
+  letter-spacing: 0.01em;
+}
+.nav-links a:hover {
+  color: var(--navy);
+  background: rgba(10,35,66,0.06);
+}
+.nav-cta {
+  background: var(--navy) !important;
+  color: var(--cream) !important;
+  padding: 9px 16px !important;
+}
+.nav-cta:hover { background: var(--navy-deep) !important; }
+
+/* ===== HERO ===== */
+.hero {
+  position: relative;
+  padding: 100px 32px 110px;
+  max-width: 1280px;
+  margin: 0 auto;
+  z-index: 2;
+}
+.hero-eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 11px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--navy);
+  margin-bottom: 28px;
+}
+.hero-eyebrow::before {
+  content: '';
+  width: 28px;
+  height: 1px;
+  background: var(--gold);
+}
+.hero-title {
+  font-family: 'Fraunces', serif;
+  font-size: clamp(48px, 7vw, 96px);
+  font-weight: 400;
+  line-height: 0.98;
+  letter-spacing: -0.025em;
+  color: var(--navy);
+  margin: 0 0 32px;
+  max-width: 900px;
+}
+.hero-title em {
+  font-style: italic;
+  font-weight: 300;
+  color: var(--navy-soft);
+}
+.hero-lede {
+  font-size: 20px;
+  line-height: 1.5;
+  max-width: 640px;
+  color: var(--ink-soft);
+  margin: 0 0 56px;
+  font-weight: 300;
+}
+.hero-meta {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 0;
+  border-top: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
+  padding: 24px 0;
+}
+.hero-meta-item {
+  padding: 0 24px;
+  border-right: 1px solid var(--line);
+}
+.hero-meta-item:first-child { padding-left: 0; }
+.hero-meta-item:last-child { border-right: none; }
+.hero-meta-label {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 10px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--ink-soft);
+  margin-bottom: 8px;
+}
+.hero-meta-value {
+  font-family: 'Fraunces', serif;
+  font-size: 24px;
+  font-weight: 500;
+  color: var(--navy);
+  letter-spacing: -0.01em;
+}
+.hero-meta-value small {
+  display: block;
+  font-family: 'Inter Tight', sans-serif;
+  font-size: 12px;
+  font-weight: 400;
+  color: var(--ink-soft);
+  letter-spacing: 0;
+  margin-top: 4px;
+}
+
+/* big watermark behind hero */
+.hero-watermark {
+  position: absolute;
+  top: 0;
+  right: -40px;
+  font-family: 'Fraunces', serif;
+  font-size: 320px;
+  font-weight: 300;
+  font-style: italic;
+  color: var(--navy);
+  opacity: 0.04;
+  line-height: 1;
+  pointer-events: none;
+  user-select: none;
+  letter-spacing: -0.04em;
+}
+
+/* ===== SECTION ===== */
+section {
+  position: relative;
+  z-index: 2;
+}
+.section {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 88px 32px;
+}
+.section-band {
+  background: var(--white);
+  border-top: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
+}
+.section-band-dark {
+  background: var(--navy);
+  color: var(--cream);
+  border: none;
+}
+
+.section-header {
+  display: grid;
+  grid-template-columns: 80px 1fr;
+  gap: 32px;
+  margin-bottom: 56px;
+  align-items: end;
+}
+.section-num {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 12px;
+  font-weight: 500;
+  letter-spacing: 0.18em;
+  color: var(--gold);
+  border-top: 2px solid var(--navy);
+  padding-top: 12px;
+}
+.section-band-dark .section-num {
+  color: var(--gold-bright);
+  border-color: var(--cream);
+}
+.section-title {
+  font-family: 'Fraunces', serif;
+  font-size: clamp(36px, 4.5vw, 56px);
+  font-weight: 400;
+  line-height: 1;
+  letter-spacing: -0.02em;
+  color: var(--navy);
+  margin: 0;
+  max-width: 800px;
+}
+.section-band-dark .section-title { color: var(--cream); }
+.section-title em {
+  font-style: italic;
+  font-weight: 300;
+  color: var(--navy-soft);
+}
+.section-band-dark .section-title em { color: var(--gold-bright); }
+.section-intro {
+  font-size: 18px;
+  line-height: 1.6;
+  max-width: 720px;
+  color: var(--ink-soft);
+  font-weight: 300;
+  margin: 24px 0 0 calc(80px + 32px);
+}
+.section-band-dark .section-intro { color: rgba(252,250,245,0.75); }
+
+/* ===== PROCESS / STEPS ===== */
+.process-grid {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 0;
+  border-top: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
+}
+.process-step {
+  padding: 32px 24px;
+  border-right: 1px solid var(--line);
+  position: relative;
+  background: var(--white);
+}
+.process-step:last-child { border-right: none; }
+.process-step-num {
+  font-family: 'Fraunces', serif;
+  font-size: 56px;
+  font-weight: 300;
+  font-style: italic;
+  color: var(--gold);
+  line-height: 0.9;
+  margin-bottom: 16px;
+}
+.process-step-title {
+  font-family: 'Fraunces', serif;
+  font-size: 20px;
+  font-weight: 600;
+  color: var(--navy);
+  margin: 0 0 10px;
+  letter-spacing: -0.01em;
+}
+.process-step-desc {
+  font-size: 13px;
+  line-height: 1.55;
+  color: var(--ink-soft);
+}
+.process-step-mark {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 10px;
+  letter-spacing: 0.1em;
+  color: var(--ink-soft);
+  opacity: 0.5;
+}
+
+/* ===== STANDARDS GRID ===== */
+.standards-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 24px;
+}
+.standard-card {
+  background: var(--white);
+  border: 1px solid var(--line);
+  padding: 32px;
+  position: relative;
+  transition: all 0.2s ease;
+  cursor: pointer;
+}
+.standard-card:hover {
+  border-color: var(--navy);
+  transform: translateY(-2px);
+  box-shadow: 0 12px 32px -16px rgba(10,35,66,0.25);
+}
+.standard-card.mine {
+  background: linear-gradient(180deg, var(--white) 0%, var(--cream) 100%);
+  border-color: var(--gold);
+}
+.standard-card.mine::after {
+  content: 'YOUR COMMITTEE';
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 9px;
+  letter-spacing: 0.15em;
+  color: var(--gold);
+  background: var(--cream);
+  border: 1px solid var(--gold);
+  padding: 4px 8px;
+}
+.standard-num {
+  font-family: 'Fraunces', serif;
+  font-size: 64px;
+  font-weight: 300;
+  font-style: italic;
+  color: var(--navy);
+  line-height: 1;
+  margin-bottom: 12px;
+  letter-spacing: -0.04em;
+}
+.standard-title {
+  font-family: 'Fraunces', serif;
+  font-size: 24px;
+  font-weight: 600;
+  color: var(--navy);
+  margin: 0 0 12px;
+  letter-spacing: -0.01em;
+}
+.standard-desc {
+  font-size: 14px;
+  line-height: 1.6;
+  color: var(--ink-soft);
+  margin: 0 0 20px;
+}
+.standard-meta {
+  display: flex;
+  gap: 24px;
+  padding-top: 20px;
+  border-top: 1px solid var(--line-soft);
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 11px;
+  letter-spacing: 0.05em;
+  color: var(--ink-soft);
+}
+.standard-meta strong {
+  color: var(--navy);
+  font-weight: 600;
+}
+
+/* ===== COMMITTEES ===== */
+.committees-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 0;
+  border-top: 1px solid rgba(252,250,245,0.15);
+  border-left: 1px solid rgba(252,250,245,0.15);
+}
+.committee-card {
+  background: transparent;
+  padding: 32px 28px;
+  border-right: 1px solid rgba(252,250,245,0.15);
+  border-bottom: 1px solid rgba(252,250,245,0.15);
+  position: relative;
+}
+.committee-num {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 11px;
+  letter-spacing: 0.18em;
+  color: var(--gold-bright);
+  margin-bottom: 16px;
+}
+.committee-name {
+  font-family: 'Fraunces', serif;
+  font-size: 22px;
+  font-weight: 500;
+  color: var(--cream);
+  margin: 0 0 6px;
+  letter-spacing: -0.01em;
+  line-height: 1.15;
+}
+.committee-standard {
+  font-size: 12px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: rgba(252,250,245,0.5);
+  margin-bottom: 24px;
+}
+.committee-members {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+.member-chip {
+  display: inline-block;
+  padding: 5px 11px;
+  background: rgba(252,250,245,0.08);
+  border: 1px solid rgba(252,250,245,0.15);
+  color: var(--cream);
+  font-size: 12px;
+  font-weight: 400;
+  letter-spacing: 0.01em;
+}
+.member-chip.lead {
+  background: var(--gold);
+  color: var(--navy-deep);
+  border-color: var(--gold);
+  font-weight: 600;
+}
+.committee-card.solo {
+  background: rgba(212,172,74,0.06);
+}
+.committee-card.solo .committee-name { color: var(--gold-bright); }
+
+/* ===== TIMELINE =====
+   Layout: [date col 170px] [gutter 60px with rail] [content 1fr]
+   Rail and dot sit in the gutter — never overlapping date text. */
+.timeline {
+  position: relative;
+  padding-left: 0;
+}
+.timeline-track {
+  position: relative;
+  margin-top: 32px;
+}
+.timeline-track::before {
+  content: '';
+  position: absolute;
+  left: 230px; /* 200 date + 30 gutter midpoint */
+  top: 8px;
+  bottom: 8px;
+  width: 1px;
+  background: var(--line);
+}
+.timeline-item {
+  display: grid;
+  grid-template-columns: 200px 60px 1fr;
+  gap: 0;
+  padding: 20px 0;
+  position: relative;
+}
+.timeline-item::before {
+  content: '';
+  position: absolute;
+  left: 226px; /* dot 9px wide, centered on 230 */
+  top: 28px;
+  width: 9px;
+  height: 9px;
+  background: var(--cream);
+  border: 2px solid var(--navy);
+  border-radius: 50%;
+  z-index: 2;
+}
+.timeline-item.milestone::before {
+  background: var(--gold);
+  border-color: var(--gold);
+  width: 13px;
+  height: 13px;
+  left: 224px;
+  top: 26px;
+}
+.timeline-item.urgent::before {
+  background: var(--red);
+  border-color: var(--red);
+}
+.timeline-date {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 12px;
+  font-weight: 500;
+  letter-spacing: 0.05em;
+  color: var(--navy);
+  text-align: right;
+  padding: 4px 24px 0 0;
+  white-space: nowrap;
+}
+.timeline-date small {
+  display: block;
+  color: var(--ink-soft);
+  font-size: 10px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  margin-top: 2px;
+}
+.timeline-content {
+  grid-column: 3;
+  padding-left: 0;
+}
+.timeline-title {
+  font-family: 'Fraunces', serif;
+  font-size: 18px;
+  font-weight: 600;
+  color: var(--navy);
+  margin: 0 0 6px;
+  letter-spacing: -0.005em;
+}
+.timeline-item.milestone .timeline-title {
+  font-size: 22px;
+  color: var(--navy);
+}
+.timeline-desc {
+  font-size: 14px;
+  color: var(--ink-soft);
+  line-height: 1.55;
+  margin: 0;
+}
+.timeline-owner {
+  display: inline-block;
+  margin-top: 8px;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 10px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--gold);
+  padding: 3px 8px;
+  border: 1px solid var(--gold);
+}
+
+/* ===== EXAMPLE / WORKED ===== */
+.example-wrap {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0;
+  border: 1px solid var(--line);
+  background: var(--white);
+}
+.example-col {
+  padding: 36px;
+}
+.example-col:first-child {
+  border-right: 1px solid var(--line);
+  background: linear-gradient(180deg, rgba(154,42,42,0.03), transparent);
+}
+.example-col:last-child {
+  background: linear-gradient(180deg, rgba(46,93,58,0.03), transparent);
+}
+.example-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 10px;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  margin-bottom: 16px;
+  padding: 5px 10px;
+}
+.example-tag.weak { background: rgba(154,42,42,0.1); color: var(--red); }
+.example-tag.strong { background: rgba(46,93,58,0.1); color: var(--green); }
+.example-indicator {
+  font-family: 'Fraunces', serif;
+  font-size: 18px;
+  font-weight: 500;
+  color: var(--navy);
+  margin: 0 0 16px;
+  font-style: italic;
+  line-height: 1.4;
+}
+.example-response {
+  font-size: 14.5px;
+  line-height: 1.7;
+  color: var(--ink);
+}
+.example-response p { margin: 0 0 12px; }
+.example-response p:last-child { margin-bottom: 0; }
+.example-response .anno {
+  display: inline-block;
+  background: rgba(176,141,58,0.18);
+  padding: 1px 4px;
+  border-bottom: 2px solid var(--gold);
+}
+
+/* ===== RESOURCES ===== */
+.resource-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+}
+.resource-card {
+  background: var(--white);
+  border: 1px solid var(--line);
+  padding: 24px;
+  text-decoration: none;
+  color: inherit;
+  display: block;
+  transition: all 0.15s ease;
+  position: relative;
+}
+.resource-card:hover {
+  border-color: var(--navy);
+  background: var(--cream);
+}
+.resource-card::after {
+  content: '↗';
+  position: absolute;
+  top: 20px;
+  right: 22px;
+  font-family: 'Fraunces', serif;
+  font-size: 18px;
+  color: var(--gold);
+  transition: transform 0.15s ease;
+}
+.resource-card:hover::after {
+  transform: translate(2px, -2px);
+}
+.resource-type {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 10px;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--ink-soft);
+  margin-bottom: 12px;
+}
+.resource-title {
+  font-family: 'Fraunces', serif;
+  font-size: 18px;
+  font-weight: 600;
+  color: var(--navy);
+  margin: 0 0 8px;
+  letter-spacing: -0.005em;
+}
+.resource-desc {
+  font-size: 13px;
+  line-height: 1.5;
+  color: var(--ink-soft);
+  margin: 0;
+}
+
+/* ===== EXPECTATIONS / CHECKLIST ===== */
+.checklist {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0;
+  background: var(--white);
+  border: 1px solid var(--line);
+}
+.checklist-col {
+  padding: 36px;
+}
+.checklist-col:first-child {
+  border-right: 1px solid var(--line);
+}
+.checklist-heading {
+  font-family: 'Fraunces', serif;
+  font-size: 22px;
+  font-weight: 600;
+  color: var(--navy);
+  margin: 0 0 20px;
+  letter-spacing: -0.01em;
+}
+.checklist ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+.checklist li {
+  padding: 10px 0 10px 32px;
+  position: relative;
+  border-bottom: 1px solid var(--line-soft);
+  font-size: 14.5px;
+  line-height: 1.55;
+}
+.checklist li:last-child { border-bottom: none; }
+.checklist li::before {
+  position: absolute;
+  left: 0;
+  top: 10px;
+  font-family: 'Fraunces', serif;
+  font-size: 18px;
+  font-weight: 600;
+  line-height: 1.4;
+}
+.checklist-do li::before { content: '✓'; color: var(--green); }
+.checklist-dont li::before { content: '×'; color: var(--red); font-size: 22px; top: 7px; }
+
+/* ===== PLAYBOOK ===== */
+.playbook {
+  display: grid;
+  grid-template-columns: 220px 1fr;
+  gap: 0;
+  background: var(--white);
+  border: 1px solid var(--line);
+  margin-bottom: 24px;
+}
+.playbook-tag {
+  background: var(--navy);
+  color: var(--cream);
+  padding: 36px 28px;
+  position: relative;
+}
+.playbook-tag-label {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 10px;
+  letter-spacing: 0.18em;
+  color: var(--gold-bright);
+  margin-bottom: 12px;
+}
+.playbook-tag-title {
+  font-family: 'Fraunces', serif;
+  font-size: 30px;
+  font-weight: 500;
+  line-height: 1.05;
+  letter-spacing: -0.015em;
+  color: var(--cream);
+  margin: 0;
+}
+.playbook-tag-title em { font-style: italic; color: var(--gold-bright); }
+.playbook-tag-meta {
+  position: absolute;
+  bottom: 28px;
+  left: 28px;
+  right: 28px;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 10px;
+  letter-spacing: 0.1em;
+  color: rgba(252,250,245,0.55);
+  text-transform: uppercase;
+  border-top: 1px solid rgba(252,250,245,0.2);
+  padding-top: 12px;
+}
+.playbook-body {
+  padding: 36px;
+}
+.playbook-body h4 {
+  font-family: 'Fraunces', serif;
+  font-size: 17px;
+  font-weight: 600;
+  color: var(--navy);
+  margin: 24px 0 8px;
+  letter-spacing: -0.005em;
+}
+.playbook-body h4:first-child { margin-top: 0; }
+.playbook-body h4 .stamp {
+  display: inline-block;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 10px;
+  font-weight: 500;
+  letter-spacing: 0.1em;
+  background: var(--cream);
+  color: var(--ink-soft);
+  padding: 3px 8px;
+  margin-left: 10px;
+  vertical-align: 2px;
+  border: 1px solid var(--line);
+}
+.playbook-body p {
+  font-size: 14.5px;
+  line-height: 1.65;
+  color: var(--ink);
+  margin: 0 0 12px;
+}
+.playbook-body ol, .playbook-body ul {
+  font-size: 14.5px;
+  line-height: 1.65;
+  color: var(--ink);
+  padding-left: 20px;
+  margin: 0 0 16px;
+}
+.playbook-body li { margin-bottom: 6px; }
+.playbook-body em {
+  font-style: italic;
+  color: var(--ink-soft);
+}
+
+/* Agenda block */
+.agenda {
+  background: var(--cream);
+  border-left: 3px solid var(--gold);
+  padding: 20px 24px;
+  margin: 16px 0;
+}
+.agenda-row {
+  display: grid;
+  grid-template-columns: 80px 1fr;
+  gap: 16px;
+  padding: 8px 0;
+  border-bottom: 1px dashed var(--line);
+  font-size: 14px;
+}
+.agenda-row:last-child { border-bottom: none; }
+.agenda-time {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 12px;
+  font-weight: 500;
+  color: var(--navy);
+  letter-spacing: 0.03em;
+}
+.agenda-task strong {
+  color: var(--navy);
+  font-weight: 600;
+}
+
+/* Template box (indicator response) */
+.tpl-box {
+  background: linear-gradient(180deg, var(--cream) 0%, var(--white) 100%);
+  border: 1px solid var(--line);
+  padding: 24px 28px;
+  margin: 16px 0;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 13px;
+  line-height: 1.7;
+  color: var(--ink);
+}
+.tpl-box .tpl-field {
+  display: block;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  color: var(--gold);
+  text-transform: uppercase;
+  margin: 14px 0 4px;
+}
+.tpl-box .tpl-field:first-child { margin-top: 0; }
+.tpl-box .tpl-fill {
+  display: block;
+  font-family: 'Inter Tight', sans-serif;
+  font-size: 13.5px;
+  font-style: italic;
+  color: var(--ink-soft);
+  line-height: 1.55;
+  padding-left: 14px;
+  border-left: 2px solid var(--line);
+}
+
+/* ===== SAIS CONTACTS ===== */
+.contacts {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0;
+  border: 1px solid var(--line);
+  background: var(--white);
+}
+.contact-card {
+  padding: 28px;
+  border-right: 1px solid var(--line);
+}
+.contact-card:last-child { border-right: none; }
+.contact-role {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 10px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 12px;
+}
+.contact-name {
+  font-family: 'Fraunces', serif;
+  font-size: 22px;
+  font-weight: 600;
+  color: var(--navy);
+  margin: 0 0 4px;
+  letter-spacing: -0.01em;
+}
+.contact-title {
+  font-style: italic;
+  font-size: 13px;
+  color: var(--ink-soft);
+  margin: 0 0 14px;
+}
+.contact-detail {
+  font-size: 13px;
+  line-height: 1.55;
+  color: var(--ink);
+  margin: 0;
+}
+.contact-detail a {
+  color: var(--navy);
+  text-decoration: none;
+  border-bottom: 1px solid var(--line);
+}
+.contact-detail a:hover { color: var(--gold); border-color: var(--gold); }
+
+/* ===== FOOTER ===== */
+footer {
+  background: var(--navy-deep);
+  color: rgba(252,250,245,0.7);
+  padding: 56px 32px 32px;
+  margin-top: 0;
+  position: relative;
+  z-index: 2;
+}
+.footer-inner {
+  max-width: 1280px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr;
+  gap: 48px;
+  padding-bottom: 40px;
+  border-bottom: 1px solid rgba(252,250,245,0.1);
+}
+.footer-brand {
+  font-family: 'Fraunces', serif;
+  font-size: 28px;
+  font-weight: 400;
+  color: var(--cream);
+  letter-spacing: -0.01em;
+  margin: 0 0 12px;
+}
+.footer-brand em { font-style: italic; color: var(--gold-bright); }
+.footer-tag {
+  font-size: 13px;
+  line-height: 1.55;
+  max-width: 360px;
+}
+.footer h4 {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 11px;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--gold-bright);
+  margin: 0 0 16px;
+  font-weight: 500;
+}
+.footer ul { list-style: none; padding: 0; margin: 0; }
+.footer li { margin-bottom: 8px; font-size: 13px; }
+.footer a {
+  color: rgba(252,250,245,0.7);
+  text-decoration: none;
+  transition: color 0.15s ease;
+}
+.footer a:hover { color: var(--gold-bright); }
+.footer-bottom {
+  max-width: 1280px;
+  margin: 32px auto 0;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 11px;
+  letter-spacing: 0.05em;
+  color: rgba(252,250,245,0.5);
+  display: flex;
+  justify-content: space-between;
+}
+
+/* ===== INTRO QUOTE ===== */
+.pull-quote {
+  font-family: 'Fraunces', serif;
+  font-size: clamp(28px, 3.5vw, 44px);
+  font-weight: 300;
+  font-style: italic;
+  line-height: 1.25;
+  color: var(--cream);
+  max-width: 900px;
+  margin: 40px 0;
+  letter-spacing: -0.01em;
+  position: relative;
+  padding-left: 40px;
+}
+.pull-quote::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 8px;
+  bottom: 8px;
+  width: 2px;
+  background: var(--gold-bright);
+}
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 1024px) {
+  .hero-meta { grid-template-columns: repeat(2, 1fr); }
+  .hero-meta-item:nth-child(2) { border-right: none; }
+  .hero-meta-item:nth-child(3) {
+    padding-left: 0;
+    border-top: 1px solid var(--line);
+    padding-top: 24px;
+    margin-top: 24px;
+  }
+  .hero-meta-item:nth-child(4) {
+    border-right: none;
+    border-top: 1px solid var(--line);
+    padding-top: 24px;
+    margin-top: 24px;
+  }
+  .standards-grid { grid-template-columns: 1fr; }
+  .process-grid { grid-template-columns: repeat(2, 1fr); }
+  .process-step:nth-child(odd) { border-right: 1px solid var(--line); }
+  .process-step { border-bottom: 1px solid var(--line); }
+  .process-step:last-child { grid-column: span 2; }
+  .example-wrap, .checklist { grid-template-columns: 1fr; }
+  .example-col:first-child, .checklist-col:first-child {
+    border-right: none;
+    border-bottom: 1px solid var(--line);
+  }
+  .resource-grid { grid-template-columns: repeat(2, 1fr); }
+  .playbook { grid-template-columns: 1fr; }
+  .playbook-tag { padding: 24px 24px 28px; }
+  .playbook-tag-meta { position: static; margin-top: 16px; }
+  .contacts { grid-template-columns: 1fr; }
+  .contact-card { border-right: none; border-bottom: 1px solid var(--line); }
+  .contact-card:last-child { border-bottom: none; }
+  .footer-inner { grid-template-columns: 1fr; gap: 32px; }
+}
+@media (max-width: 720px) {
+  .topnav-inner { padding: 12px 20px; }
+  .nav-links { display: none; }
+  .hero { padding: 60px 20px 70px; }
+  .section { padding: 56px 20px; }
+  .section-header { grid-template-columns: 1fr; gap: 12px; }
+  .section-intro { margin-left: 0; }
+  .hero-meta { grid-template-columns: 1fr; }
+  .hero-meta-item {
+    padding: 20px 0 !important;
+    border-right: none !important;
+    border-bottom: 1px solid var(--line);
+    margin: 0 !important;
+  }
+  .hero-meta-item:last-child { border-bottom: none; }
+  .process-grid { grid-template-columns: 1fr; }
+  .process-step { border-right: none; border-bottom: 1px solid var(--line); }
+  .resource-grid { grid-template-columns: 1fr; }
+  .timeline-track::before { left: 4px; }
+  .timeline-item { grid-template-columns: 1fr; gap: 8px; }
+  .timeline-item::before { left: 0 !important; top: 8px !important; }
+  .timeline-date { text-align: left; padding: 0 0 0 24px; }
+  .timeline-content { grid-column: auto; padding-left: 24px; }
+}
+
+/* ===== ANIMATIONS ===== */
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+.hero-eyebrow, .hero-title, .hero-lede, .hero-meta {
+  animation: fadeUp 0.8s ease-out backwards;
+}
+.hero-title { animation-delay: 0.1s; }
+.hero-lede { animation-delay: 0.25s; }
+.hero-meta { animation-delay: 0.4s; }
+
+</style>
+</head>
+<body>
+
+<!-- ========= TOP NAV ========= -->
+<nav class="topnav">
+  <div class="topnav-inner">
+    <a href="#top" class="brand">
+      <div class="brand-mark">W</div>
+      <div>
+        <div class="brand-text">Westhill Institute</div>
+        <div class="brand-sub">SAIS Self-Study · 2027</div>
+      </div>
+    </a>
+    <div class="nav-links">
+      <a href="#process">Process</a>
+      <a href="#standards">Standards</a>
+      <a href="#committees">Committees</a>
+      <a href="#playbook">Playbook</a>
+      <a href="#timeline">Timeline</a>
+      <a href="#example">Example</a>
+      <a href="#resources">Resources</a>
+      <a href="https://drive.google.com/drive/folders/1OyMqTVdp1GI77gioEMaSsBd6oIKgFGX-?usp=sharing" target="_blank" class="nav-cta">Drive ↗</a>
+    </div>
+  </div>
+</nav>
+
+<!-- ========= HERO ========= -->
+<section class="hero" id="top">
+  <div class="hero-watermark">2027</div>
+  <div class="hero-eyebrow">Accreditation · Reaffirmation Cycle</div>
+  <h1 class="hero-title">A school knows itself <em>before others can know it.</em></h1>
+  <p class="hero-lede">The SAIS visiting team arrives in March 2027. Between now and then, six committees will turn five years of practice into one shared, evidence-grounded portrait of who we are — and who we are still becoming.</p>
+
+  <div class="hero-meta">
+    <div class="hero-meta-item">
+      <div class="hero-meta-label">Report Due</div>
+      <div class="hero-meta-value">Feb 23<small>2027 · SAIS portal upload</small></div>
+    </div>
+    <div class="hero-meta-item">
+      <div class="hero-meta-label">Visit Window</div>
+      <div class="hero-meta-value">Mar 23 — 25<small>2027 · Tuesday – Thursday</small></div>
+    </div>
+    <div class="hero-meta-item">
+      <div class="hero-meta-label">Days to Report</div>
+      <div class="hero-meta-value" id="countdown">—<small>until SAIS submission</small></div>
+    </div>
+    <div class="hero-meta-item">
+      <div class="hero-meta-label">Committees</div>
+      <div class="hero-meta-value">5 + 1<small>26 colleagues · 1 director-led</small></div>
+    </div>
+  </div>
+</section>
+
+<!-- ========= PROCESS ========= -->
+<section class="section section-band" id="process">
+  <div class="section-header">
+    <div class="section-num">01 / Process</div>
+    <h2 class="section-title">What the <em>self-study</em> actually is.</h2>
+  </div>
+  <p class="section-intro">SAIS doesn't want a press release. It wants honest evidence that the school we describe is the school a visitor would recognize on Tuesday morning. The process is a five-part cycle, and we have done it before. This is the version of it for 2027.</p>
+
+  <div class="process-grid">
+    <div class="process-step">
+      <div class="process-step-mark">01</div>
+      <div class="process-step-num">i.</div>
+      <h3 class="process-step-title">Read the indicators</h3>
+      <p class="process-step-desc">Each standard has 4–7 indicators. Read all of yours, slowly, before writing a word. The indicators define what "meeting the standard" looks like in SAIS's language.</p>
+    </div>
+    <div class="process-step">
+      <div class="process-step-mark">02</div>
+      <div class="process-step-num">ii.</div>
+      <h3 class="process-step-title">Inventory evidence</h3>
+      <p class="process-step-desc">List what already exists — policies, minutes, surveys, programs, data. If an indicator has no evidence, that's not a gap to hide; it's a gap to plan around.</p>
+    </div>
+    <div class="process-step">
+      <div class="process-step-mark">03</div>
+      <div class="process-step-num">iii.</div>
+      <h3 class="process-step-title">Rate honestly</h3>
+      <p class="process-step-desc">For each indicator: <em>Not Yet · Developing · Meeting · Exceeding</em>. Inflated ratings are the fastest way to lose credibility with the visiting team.</p>
+    </div>
+    <div class="process-step">
+      <div class="process-step-mark">04</div>
+      <div class="process-step-num">iv.</div>
+      <h3 class="process-step-title">Write the narrative</h3>
+      <p class="process-step-desc">A short response per indicator. Cite the evidence by name. Note what's strong, what's emerging, what's planned. Two paragraphs is enough — clarity beats volume.</p>
+    </div>
+    <div class="process-step">
+      <div class="process-step-mark">05</div>
+      <div class="process-step-num">v.</div>
+      <h3 class="process-step-title">Improvement plan</h3>
+      <p class="process-step-desc">Identify one to two real priorities per standard. These become the school's commitments for the next cycle — and what the visiting team will ask about most.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ========= STANDARDS ========= -->
+<section class="section" id="standards">
+  <div class="section-header">
+    <div class="section-num">02 / Standards</div>
+    <h2 class="section-title">The six standards, <em>and who owns them.</em></h2>
+  </div>
+  <p class="section-intro">SAIS 2027 organizes the self-study around six standards. Five of them are committee work; Mission is held by the Director of Academics. Click any card to jump to its folder in Drive.</p>
+
+  <div class="standards-grid" style="margin-top:32px;">
+
+    <a class="standard-card mine" href="https://drive.google.com/drive/folders/17oIsX8uG-7Umj8GADpbCn6yS1z_ihcCo" target="_blank" style="text-decoration:none;color:inherit;">
+      <div class="standard-num">01</div>
+      <h3 class="standard-title">Mission</h3>
+      <p class="standard-desc">Articulating who Westhill is, what it promises students and families, and how every other standard is anchored to that promise. The keystone of the report.</p>
+      <div class="standard-meta">
+        <span>OWNER · <strong>Ktyall</strong></span>
+        <span>STATUS · <strong>In progress</strong></span>
+      </div>
+    </a>
+
+    <a class="standard-card" href="https://drive.google.com/drive/folders/1_McmdwpG3o7F0lvzTiVgw3yVLC6Mm58U" target="_blank" style="text-decoration:none;color:inherit;">
+      <div class="standard-num">02</div>
+      <h3 class="standard-title">Governance &amp; Leadership</h3>
+      <p class="standard-desc">Board composition, school leadership structure, decision-making, succession, financial stewardship. The systems that keep the mission durable through changes in personnel.</p>
+      <div class="standard-meta">
+        <span>LEAD · <strong>Lisa</strong></span>
+        <span>MEMBERS · <strong>6</strong></span>
+      </div>
+    </a>
+
+    <a class="standard-card" href="https://drive.google.com/drive/folders/1I0OPZYSY1xPpdcGypNiBe5BCQlXuFXDB" target="_blank" style="text-decoration:none;color:inherit;">
+      <div class="standard-num">03</div>
+      <h3 class="standard-title">Teaching &amp; Learning</h3>
+      <p class="standard-desc">Curriculum, instruction, assessment, student progress. The largest standard by volume of evidence — and the one most visible during the on-site visit's classroom rounds.</p>
+      <div class="standard-meta">
+        <span>LEAD · <strong>Sian</strong></span>
+        <span>MEMBERS · <strong>6</strong></span>
+      </div>
+    </a>
+
+    <a class="standard-card" href="https://drive.google.com/drive/folders/1PxuMgqA3rPscbefPxlPK6XcGLoOcqAYi" target="_blank" style="text-decoration:none;color:inherit;">
+      <div class="standard-num">04</div>
+      <h3 class="standard-title">Stakeholder Communications &amp; Relationships</h3>
+      <p class="standard-desc">How Westhill communicates with families, alumni, and the wider community; how community input shapes school decisions. Often where reputational claims are tested against data.</p>
+      <div class="standard-meta">
+        <span>LEAD · <strong>Erik</strong></span>
+        <span>MEMBERS · <strong>5</strong></span>
+      </div>
+    </a>
+
+    <a class="standard-card" href="https://drive.google.com/drive/folders/1Wr-KBQzuxXSRiOrhVG05rhSz-2G1N8yK" target="_blank" style="text-decoration:none;color:inherit;">
+      <div class="standard-num">05</div>
+      <h3 class="standard-title">Resources &amp; Support Systems</h3>
+      <p class="standard-desc">Facilities, finance, technology, health and safety, student support services. The structural backbone — strong here means everything else can actually function.</p>
+      <div class="standard-meta">
+        <span>LEAD · <strong>Marite</strong></span>
+        <span>MEMBERS · <strong>6</strong></span>
+      </div>
+    </a>
+
+    <a class="standard-card" href="https://drive.google.com/drive/folders/1aGfJ15mWXbYCd6S5bLybnxuAXhyUku6p" target="_blank" style="text-decoration:none;color:inherit;">
+      <div class="standard-num">06</div>
+      <h3 class="standard-title">Virtual Education</h3>
+      <p class="standard-desc">Post-2020 addition to the SAIS framework. How Westhill handles online, hybrid, and emergency-remote learning; digital citizenship and equitable access.</p>
+      <div class="standard-meta">
+        <span>OWNER · <strong>Cross-cutting</strong></span>
+        <span>NOTE · <strong>See Teaching &amp; Resources</strong></span>
+      </div>
+    </a>
+
+  </div>
+</section>
+
+<!-- ========= COMMITTEES ========= -->
+<section class="section section-band-dark" id="committees">
+  <div class="section-header">
+    <div class="section-num">03 / Committees</div>
+    <h2 class="section-title">Twenty-six colleagues, <em>five committees, one report.</em></h2>
+  </div>
+  <p class="section-intro">Each committee owns one standard. Leads (in gold) convene meetings, assign indicators, and submit the section. Members contribute writing, evidence, and review. Meeting cadence is weekly, every Friday — kickoff May 29 during in-service. See the <a href="#playbook" style="color:var(--gold-bright);border-bottom:1px solid var(--gold);">Playbook</a> for the standing agenda.</p>
+
+  <div class="committees-grid" style="margin-top:48px;">
+
+    <div class="committee-card solo">
+      <div class="committee-num">COM · 01</div>
+      <div class="committee-name">Mission</div>
+      <div class="committee-standard">Standard 1</div>
+      <div class="committee-members">
+        <span class="member-chip lead">Ktyall</span>
+      </div>
+    </div>
+
+    <div class="committee-card">
+      <div class="committee-num">COM · 02</div>
+      <div class="committee-name">Governance &amp; Leadership</div>
+      <div class="committee-standard">Standard 2</div>
+      <div class="committee-members">
+        <span class="member-chip lead">Lisa</span>
+        <span class="member-chip">Rocio A.</span>
+        <span class="member-chip">Esly</span>
+        <span class="member-chip">Cameron</span>
+        <span class="member-chip">Eli</span>
+        <span class="member-chip">Sarah</span>
+      </div>
+    </div>
+
+    <div class="committee-card">
+      <div class="committee-num">COM · 03</div>
+      <div class="committee-name">Teaching &amp; Learning</div>
+      <div class="committee-standard">Standard 3</div>
+      <div class="committee-members">
+        <span class="member-chip lead">Sian</span>
+        <span class="member-chip">Pablo</span>
+        <span class="member-chip">Grisell</span>
+        <span class="member-chip">Rocio T.</span>
+        <span class="member-chip">Jackie</span>
+        <span class="member-chip">Javier</span>
+        <span class="member-chip">Paulina</span>
+      </div>
+    </div>
+
+    <div class="committee-card">
+      <div class="committee-num">COM · 04</div>
+      <div class="committee-name">Stakeholder Communications</div>
+      <div class="committee-standard">Standard 4</div>
+      <div class="committee-members">
+        <span class="member-chip lead">Erik</span>
+        <span class="member-chip">Monica</span>
+        <span class="member-chip">Dani</span>
+        <span class="member-chip">Erika</span>
+        <span class="member-chip">Carlos</span>
+      </div>
+    </div>
+
+    <div class="committee-card">
+      <div class="committee-num">COM · 05</div>
+      <div class="committee-name">Resources &amp; Support</div>
+      <div class="committee-standard">Standard 5</div>
+      <div class="committee-members">
+        <span class="member-chip lead">Marite</span>
+        <span class="member-chip">Mariana</span>
+        <span class="member-chip">Julie</span>
+        <span class="member-chip">Sylvie</span>
+        <span class="member-chip">Glenn</span>
+        <span class="member-chip">Ponce</span>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="pull-quote">
+    The 2022 visit's strongest sections weren't the ones with the most evidence — they were the ones where the committee had argued internally first, and the writing showed it.
+  </div>
+</section>
+
+<!-- ========= EXPECTATIONS ========= -->
+<section class="section" id="expectations">
+  <div class="section-header">
+    <div class="section-num">04 / Expectations</div>
+    <h2 class="section-title">What committee work <em>looks like in practice.</em></h2>
+  </div>
+  <p class="section-intro">Two columns. The left is the temptation; the right is the discipline. Most of the work over the next eight months is staying on the right.</p>
+
+  <div class="checklist" style="margin-top:40px;">
+    <div class="checklist-col checklist-do">
+      <div class="checklist-heading">Do</div>
+      <ul>
+        <li>Write each indicator response as evidence + interpretation. "Our PD calendar shows X. This means Y for teachers."</li>
+        <li>Name the actual document, policy, or program. "Faculty Handbook §4.2," not "the handbook somewhere."</li>
+        <li>Distinguish what's <em>established</em> from what's <em>emerging</em>. Visitors respect honest staging more than blanket claims.</li>
+        <li>Use 2022 self-study language where it still describes us — and explicitly flag where it doesn't.</li>
+        <li>Meet weekly, every Friday, from May 29 onward. Minutes filed in your committee folder within 48 hours, using the template.</li>
+        <li>Rate yourselves before you write. The narrative explains the rating, not the other way around.</li>
+      </ul>
+    </div>
+    <div class="checklist-col checklist-dont">
+      <div class="checklist-heading">Don't</div>
+      <ul>
+        <li>Write marketing prose. "Westhill is committed to excellence" is not a self-study sentence.</li>
+        <li>Inflate ratings to "Exceeding" without evidence. Visitors will probe these first, and the team trusts you less afterward.</li>
+        <li>Cut and paste from 2022 without checking whether the practice still exists in 2026.</li>
+        <li>Hide gaps. Every gap acknowledged becomes an improvement plan — and improvement plans <em>strengthen</em> the report.</li>
+        <li>Submit individual writing without committee review. The committee owns the section, not one person.</li>
+        <li>Wait until December to start writing. The report is uploaded to SAIS in January; December is for the director's review, not first drafts.</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- ========= PLAYBOOK ========= -->
+<section class="section" id="playbook">
+  <div class="section-header">
+    <div class="section-num">05 / Playbook</div>
+    <h2 class="section-title">Run your meetings <em>like the report depends on them.</em></h2>
+  </div>
+  <p class="section-intro">It does. Below: the agenda for May 29, the weekly Friday rhythm, the note-taking protocol, and the indicator response template. Each committee follows the same playbook so the final report has one voice, not five.</p>
+
+  <!-- §A — First meeting -->
+  <div class="playbook" style="margin-top:40px;">
+    <div class="playbook-tag">
+      <div class="playbook-tag-label">PLAYBOOK · A</div>
+      <h3 class="playbook-tag-title">First meeting<br><em>May 29 · 90 min</em></h3>
+      <div class="playbook-tag-meta">In-service Friday · all committees concurrent</div>
+    </div>
+    <div class="playbook-body">
+      <h4>Purpose</h4>
+      <p>By the end of the meeting, every committee member should be able to answer three questions: <em>What standard do we own? Which indicators am I responsible for? When do we meet next?</em></p>
+
+      <h4>Agenda <span class="stamp">90 MIN</span></h4>
+      <div class="agenda">
+        <div class="agenda-row"><div class="agenda-time">0:00 – 0:10</div><div class="agenda-task"><strong>Welcome &amp; charge.</strong> Lead reads the committee's standard out loud. Why this committee exists.</div></div>
+        <div class="agenda-row"><div class="agenda-time">0:10 – 0:30</div><div class="agenda-task"><strong>Read the indicators together.</strong> Take turns reading each indicator aloud. After each, pause: "What does this look like at Westhill today?" Capture the answer in one line.</div></div>
+        <div class="agenda-row"><div class="agenda-time">0:30 – 0:55</div><div class="agenda-task"><strong>What evidence already exists?</strong> For each indicator, list the documents, policies, surveys, or programs that come to mind. Don't go searching yet — capture what's already in the room.</div></div>
+        <div class="agenda-row"><div class="agenda-time">0:55 – 1:10</div><div class="agenda-task"><strong>Assign indicators.</strong> Each member takes ownership of 1–2 indicators. Owner is responsible for drafting the response, gathering evidence, and proposing the rating.</div></div>
+        <div class="agenda-row"><div class="agenda-time">1:10 – 1:25</div><div class="agenda-task"><strong>Set the weekly slot.</strong> Pick one Friday hour that works for everyone. Block it on calendars through January.</div></div>
+        <div class="agenda-row"><div class="agenda-time">1:25 – 1:30</div><div class="agenda-task"><strong>Minutes &amp; close.</strong> Confirm note-taker. File minutes in committee folder within 48 hours.</div></div>
+      </div>
+
+      <h4>What success looks like</h4>
+      <ul>
+        <li>Every member has read every indicator at least once.</li>
+        <li>Each indicator has at least one owner (no orphans).</li>
+        <li>Each indicator has a rough first list of existing evidence.</li>
+        <li>The weekly meeting time is on everyone's calendar.</li>
+        <li>Minutes are filed by Sunday May 31.</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- §B — Weekly meeting -->
+  <div class="playbook">
+    <div class="playbook-tag">
+      <div class="playbook-tag-label">PLAYBOOK · B</div>
+      <h3 class="playbook-tag-title">Weekly rhythm<br><em>Every Friday · 60 min</em></h3>
+      <div class="playbook-tag-meta">June 5 → January 22</div>
+    </div>
+    <div class="playbook-body">
+      <h4>Standing agenda <span class="stamp">60 MIN</span></h4>
+      <div class="agenda">
+        <div class="agenda-row"><div class="agenda-time">0:00 – 0:05</div><div class="agenda-task"><strong>Last week's minutes &amp; actions.</strong> Read aloud. Confirm completed; surface blockers.</div></div>
+        <div class="agenda-row"><div class="agenda-time">0:05 – 0:20</div><div class="agenda-task"><strong>Round-robin: indicator updates.</strong> Each member: one indicator, two sentences. <em>"This is where I am. This is what I need."</em></div></div>
+        <div class="agenda-row"><div class="agenda-time">0:20 – 0:45</div><div class="agenda-task"><strong>Deep work.</strong> The week's focus indicator gets group attention: read the draft, challenge the rating, pressure-test the evidence. This is where the real writing improves.</div></div>
+        <div class="agenda-row"><div class="agenda-time">0:45 – 0:55</div><div class="agenda-task"><strong>Cross-committee surface.</strong> Anything our committee said this week that another committee should know? (Conflicts get caught here, not in January.)</div></div>
+        <div class="agenda-row"><div class="agenda-time">0:55 – 1:00</div><div class="agenda-task"><strong>Next week.</strong> Assign next week's focus indicator and next note-taker.</div></div>
+      </div>
+
+      <h4>Phase calendar <span class="stamp">SEASONAL FOCUS</span></h4>
+      <ul>
+        <li><strong>June – September:</strong> Evidence inventory. Most weeks the focus is "what evidence exists, what's missing, what do we need to generate?"</li>
+        <li><strong>October – November:</strong> Drafting. Each Friday's deep work is one indicator response — read it together, sharpen it.</li>
+        <li><strong>December:</strong> Cross-committee review. Read another committee's section as a group. Send specific written feedback.</li>
+        <li><strong>January:</strong> Improvement plan finalization &amp; response to Director feedback.</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- §C — Note-taking -->
+  <div class="playbook">
+    <div class="playbook-tag">
+      <div class="playbook-tag-label">PLAYBOOK · C</div>
+      <h3 class="playbook-tag-title">Note-taking<br><em>The minute protocol</em></h3>
+      <div class="playbook-tag-meta">Filed within 48h · template in Drive</div>
+    </div>
+    <div class="playbook-body">
+      <h4>Why minutes matter</h4>
+      <p>The visiting team can ask to see committee minutes. More importantly: SAIS expects evidence that the self-study was a genuine process, not a document produced in February. Your minutes are that evidence.</p>
+
+      <h4>Required fields</h4>
+      <ul>
+        <li><strong>Date, attendees, absent.</strong> Plain log.</li>
+        <li><strong>Indicators discussed.</strong> By number (e.g. "3.2, 3.4"). Not "we talked about teaching."</li>
+        <li><strong>Decisions made.</strong> Each decision in one sentence. <em>"Rated 2.3 as Meeting based on board minutes from Oct 2024 and audit letter."</em></li>
+        <li><strong>Evidence cited or requested.</strong> What documents came up, what's still needed.</li>
+        <li><strong>Disagreements.</strong> Yes — write them down. Visitors trust committees that argued.</li>
+        <li><strong>Action items.</strong> Owner · deliverable · due date. Three columns, no prose.</li>
+      </ul>
+
+      <h4>How to write a decision line</h4>
+      <p><em>Weak:</em> "We discussed indicator 2.5 and felt it was strong."</p>
+      <p><em>Strong:</em> "Rated indicator 2.5 as Meeting. Evidence: Board minutes Sept 2024 (head's evaluation), HR file (succession plan draft), strategic plan §3. Gap: no documented board self-evaluation since 2023 — flagged for improvement plan."</p>
+
+      <p style="margin-top:24px;">
+        <a href="https://docs.google.com/document/d/1D2sx5m9P9QqXx9JGx1-77HurrN-2aFdEoZEAk74grVA/copy" target="_blank" style="display:inline-block;background:var(--navy);color:var(--cream);text-decoration:none;padding:12px 24px;font-family:'JetBrains Mono',monospace;font-size:12px;letter-spacing:0.1em;text-transform:uppercase;font-weight:500;">
+          → Click to copy the minutes template
+        </a>
+      </p>
+    </div>
+  </div>
+
+  <!-- §D — Indicator template -->
+  <div class="playbook">
+    <div class="playbook-tag">
+      <div class="playbook-tag-label">PLAYBOOK · D</div>
+      <h3 class="playbook-tag-title">Indicator response<br><em>The three-part template</em></h3>
+      <div class="playbook-tag-meta">SAIS-mandated structure · every indicator</div>
+    </div>
+    <div class="playbook-body">
+      <h4>SAIS requires three parts per indicator</h4>
+      <p>This is not a Westhill convention — it's the structure SAIS expects in every response: <strong>Affirm · Describe · Evidence.</strong> Plus a rating. Use this template for every indicator you own.</p>
+
+      <div class="tpl-box">
+        <span class="tpl-field">Indicator</span>
+        <span class="tpl-fill">[Paste the full indicator text verbatim from the SAIS standards document]</span>
+
+        <span class="tpl-field">Rating</span>
+        <span class="tpl-fill">Not Yet · Developing · Meeting · Exceeding</span>
+
+        <span class="tpl-field">1. Affirmation</span>
+        <span class="tpl-fill">One sentence: yes, the school adheres to this indicator. (Or: the school does not currently adhere — only if accurate, and only if a plan follows.)</span>
+
+        <span class="tpl-field">2. Description — how we adhere</span>
+        <span class="tpl-fill">2–4 sentences. The actual practice, program, structure, or policy that satisfies the indicator. Name names. <em>"The Academic Council, chaired by the Director of Academics, meets monthly to review curriculum mapping…"</em></span>
+
+        <span class="tpl-field">3. Evidence</span>
+        <span class="tpl-fill">A bullet list. Document name · location · date. <em>"Academic Council minutes (Drive · 2025–26 folder · Sept 2025 onward)"</em></span>
+
+        <span class="tpl-field">Strengths · Emerging · Improvement note</span>
+        <span class="tpl-fill">Optional but recommended. What's working, what's developing, and anything this committee thinks should become an improvement priority.</span>
+      </div>
+
+      <h4>Length target</h4>
+      <p>120 – 200 words per indicator. Shorter than you'd think. Visitors read fifty of these — clarity beats volume every time.</p>
+
+      <h4>One worked example</h4>
+      <p>See <a href="#example" style="color:var(--navy);font-weight:600;">§06 Example</a> below for the same indicator written weakly (no template) and strongly (using the template).</p>
+
+      <p style="margin-top:24px;">
+        <a href="https://docs.google.com/document/d/14BXdnDbERqqwLHnRBQYg3v4xHcrZEMib23j6IjmVNs0/copy" target="_blank" style="display:inline-block;background:var(--navy);color:var(--cream);text-decoration:none;padding:12px 24px;font-family:'JetBrains Mono',monospace;font-size:12px;letter-spacing:0.1em;text-transform:uppercase;font-weight:500;">
+          → Click to copy the template
+        </a>
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- ========= WORKED EXAMPLE ========= -->
+<section class="section section-band" id="example">
+  <div class="section-header">
+    <div class="section-num">06 / Example</div>
+    <h2 class="section-title">One indicator, <em>two responses.</em></h2>
+  </div>
+  <p class="section-intro">A worked comparison, drawn from a real Standard 3 (Teaching &amp; Learning) indicator. Same prompt, two responses. The difference is what the visiting team is reading for.</p>
+
+  <div class="example-wrap" style="margin-top:40px;">
+    <div class="example-col">
+      <div class="example-tag weak">Weak response · 47 words</div>
+      <p class="example-indicator">"The school provides high-quality, sustained professional learning for all faculty, aligned to school priorities."</p>
+      <div class="example-response">
+        <p>Westhill is deeply committed to professional development. Our faculty participate in numerous PD opportunities throughout the year, and we offer ongoing training that aligns with our institutional values. Teachers consistently report a positive experience.</p>
+      </div>
+    </div>
+    <div class="example-col">
+      <div class="example-tag strong">Strong response · 168 words</div>
+      <p class="example-indicator">"The school provides high-quality, sustained professional learning for all faculty, aligned to school priorities."</p>
+      <div class="example-response">
+        <p><span class="anno">Meeting · trending toward Exceeding.</span> Westhill's PD program shifted in 2023 from generic whole-faculty sessions to a menu-based model, after the 2022 self-study flagged that PD was perceived as "burdensome" and "not dynamic."</p>
+        <p>Faculty now select from targeted strands (IB pedagogy, assessment design, EAL strategies, digital tools) aligned to the three-year strategic plan. <span class="anno">Evidence: PD Calendar 2025–26, Strand Enrollment Sheet, Faculty PD Survey (April 2026).</span></p>
+        <p>The survey shows participation up from 61% to 89% and "meaningfulness" ratings up from 2.8 to 4.1 on a 5-point scale. The Master's program for English speakers continues as a sustained, multi-year learning pathway.</p>
+        <p><span class="anno">Emerging:</span> follow-through after individual sessions remains uneven — a 2022 weakness that has narrowed but not closed. The committee proposes a peer-coaching layer in 2026–27 as the standard's improvement priority.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ========= TIMELINE ========= -->
+<section class="section" id="timeline">
+  <div class="section-header">
+    <div class="section-num">07 / Timeline</div>
+    <h2 class="section-title">From here <em>to the visit.</em></h2>
+  </div>
+  <p class="section-intro">Ten months. Five milestones. Anchored to the actual SAIS deadlines: report due February 23, visit March 23–25. Committees meet every Friday, beginning with all-hands kickoff on May 29 during in-service.</p>
+
+  <div class="timeline-track">
+
+    <div class="timeline-item milestone">
+      <div class="timeline-date">May 29, 2026<small>Milestone · Kickoff</small></div>
+      <div class="timeline-content">
+        <h4 class="timeline-title">All-committees kickoff (in-service)</h4>
+        <p class="timeline-desc">First meeting for every committee, held during Friday in-service. Leads run the kickoff agenda (see Playbook §A). By the end of the meeting, each committee has read its standard, assigned indicators, and scheduled its weekly Friday slot.</p>
+        <span class="timeline-owner">All committees</span>
+      </div>
+    </div>
+
+    <div class="timeline-item">
+      <div class="timeline-date">Jun 5 → ongoing<small>Weekly</small></div>
+      <div class="timeline-content">
+        <h4 class="timeline-title">Friday committee meetings begin</h4>
+        <p class="timeline-desc">Each committee meets weekly, every Friday, using the standing agenda (Playbook §B). Minutes filed within 48 hours using the template. The Director of Academics joins one meeting per committee per month.</p>
+        <span class="timeline-owner">Committee leads</span>
+      </div>
+    </div>
+
+    <div class="timeline-item">
+      <div class="timeline-date">Jun – Sep 2026<small></small></div>
+      <div class="timeline-content">
+        <h4 class="timeline-title">Evidence inventory phase</h4>
+        <p class="timeline-desc">Committees catalog every document, policy, survey, and program that speaks to each indicator. Gaps are surfaced and flagged early — easier to generate evidence in summer than in January.</p>
+        <span class="timeline-owner">All members</span>
+      </div>
+    </div>
+
+    <div class="timeline-item milestone">
+      <div class="timeline-date">Sep 25, 2026<small>Milestone</small></div>
+      <div class="timeline-content">
+        <h4 class="timeline-title">Evidence inventory locked</h4>
+        <p class="timeline-desc">Each committee submits its complete inventory: every indicator has a list of supporting evidence (or a documented gap with a plan). From here forward, the focus shifts to writing.</p>
+        <span class="timeline-owner">Leads → Ktyall</span>
+      </div>
+    </div>
+
+    <div class="timeline-item">
+      <div class="timeline-date">Oct – Nov 2026<small></small></div>
+      <div class="timeline-content">
+        <h4 class="timeline-title">Indicator drafting</h4>
+        <p class="timeline-desc">Members write the three-part response for each indicator they own (Affirm · Describe · Evidence). The committee meets weekly to review, challenge, and refine. Ratings are proposed in pencil; they firm up once narratives are written.</p>
+        <span class="timeline-owner">Committee members</span>
+      </div>
+    </div>
+
+    <div class="timeline-item milestone">
+      <div class="timeline-date">Nov 27, 2026<small>Milestone</small></div>
+      <div class="timeline-content">
+        <h4 class="timeline-title">First complete committee drafts</h4>
+        <p class="timeline-desc">Every indicator rated, every narrative written, every evidence citation linked. This is the version that will be cross-read by other committees in December.</p>
+        <span class="timeline-owner">Committee leads</span>
+      </div>
+    </div>
+
+    <div class="timeline-item">
+      <div class="timeline-date">Dec 2026<small></small></div>
+      <div class="timeline-content">
+        <h4 class="timeline-title">Cross-committee review</h4>
+        <p class="timeline-desc">Committees read each other's drafts. Inconsistencies surface — usually between Governance, Teaching &amp; Learning, and Resources. Each committee responds to feedback in the first two Fridays of January.</p>
+        <span class="timeline-owner">Cross-committee</span>
+      </div>
+    </div>
+
+    <div class="timeline-item milestone">
+      <div class="timeline-date">Jan 22, 2027<small>Milestone</small></div>
+      <div class="timeline-content">
+        <h4 class="timeline-title">Improvement plans + full integrated draft</h4>
+        <p class="timeline-desc">Each committee submits its 1–2 improvement priorities. Director assembles the full integrated draft. Committee active writing is now complete; the next two weeks are the director's grace window.</p>
+        <span class="timeline-owner">Leads → Ktyall</span>
+      </div>
+    </div>
+
+    <div class="timeline-item">
+      <div class="timeline-date">Jan 22 – Feb 5<small>Review window</small></div>
+      <div class="timeline-content">
+        <h4 class="timeline-title">Director's review &amp; revision</h4>
+        <p class="timeline-desc">Two weeks of line-by-line review, consistency checks, evidence verification, and any final committee callbacks. This window is the buffer that keeps the Feb 23 submission from being a scramble.</p>
+        <span class="timeline-owner">Ktyall</span>
+      </div>
+    </div>
+
+    <div class="timeline-item milestone">
+      <div class="timeline-date">Feb 5, 2027<small>Milestone</small></div>
+      <div class="timeline-content">
+        <h4 class="timeline-title">Final draft to Head of School</h4>
+        <p class="timeline-desc">Polished, internally consistent draft delivered to Ms. Shillady for leadership sign-off. Eighteen days remain before SAIS submission.</p>
+        <span class="timeline-owner">Ktyall → HoS</span>
+      </div>
+    </div>
+
+    <div class="timeline-item milestone">
+      <div class="timeline-date">Feb 23, 2027<small>SAIS deadline</small></div>
+      <div class="timeline-content">
+        <h4 class="timeline-title">Self-study uploaded to SAIS portal</h4>
+        <p class="timeline-desc">Hard deadline from SAIS. Report and evidence uploaded to the Accreditation Portal for Ms. Leah Hannon (Visiting Team Chair) and her team to review ahead of the visit.</p>
+        <span class="timeline-owner">Ktyall</span>
+      </div>
+    </div>
+
+    <div class="timeline-item">
+      <div class="timeline-date">Feb 24 – Mar 22<small></small></div>
+      <div class="timeline-content">
+        <h4 class="timeline-title">Visit preparation</h4>
+        <p class="timeline-desc">Classroom-visit logistics, stakeholder interview scheduling, evidence-room walkthroughs. Faculty briefing on what visitors will and won't ask. Mock-visit week.</p>
+        <span class="timeline-owner">All</span>
+      </div>
+    </div>
+
+    <div class="timeline-item urgent milestone">
+      <div class="timeline-date">Mar 23 – 25, 2027<small>The visit</small></div>
+      <div class="timeline-content">
+        <h4 class="timeline-title">SAIS visiting team on campus</h4>
+        <p class="timeline-desc">Three days. Classroom observations, leadership and board interviews, parent and student focus groups, evidence review. Exit report delivered Thursday afternoon.</p>
+        <span class="timeline-owner">Westhill community</span>
+      </div>
+    </div>
+
+    <div class="timeline-item">
+      <div class="timeline-date">Apr 4, 2027<small></small></div>
+      <div class="timeline-content">
+        <h4 class="timeline-title">Visiting team report delivered</h4>
+        <p class="timeline-desc">SAIS visiting team submits its written report to Westhill. Findings, recommendations, and accreditation decision communicated to the school community.</p>
+        <span class="timeline-owner">From SAIS</span>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ========= RESOURCES ========= -->
+<section class="section section-band" id="resources">
+  <div class="section-header">
+    <div class="section-num">08 / Resources</div>
+    <h2 class="section-title">Everything you'll need, <em>in one place.</em></h2>
+  </div>
+  <p class="section-intro">Templates, the 2022 archive for reference, the live 2027 folder, and SAIS's own documentation. Two new templates for this cycle: the Indicator Response Template and the Friday Minutes Template — both click-to-copy. If something is missing, message Ktyall.</p>
+
+  <div class="resource-grid" style="margin-top:32px;">
+
+    <a href="https://drive.google.com/drive/folders/1OyMqTVdp1GI77gioEMaSsBd6oIKgFGX-?usp=sharing" class="resource-card" target="_blank">
+      <div class="resource-type">Drive · Master Folder</div>
+      <h4 class="resource-title">SAIS Accreditation Hub</h4>
+      <p class="resource-desc">Top-level folder. Contains both the 2027 and 2022 cycles. Start here.</p>
+    </a>
+
+    <a href="https://drive.google.com/drive/folders/1OsNAg4ITmaKfK7yDbZ3Jo6OSPRUdcHAX" class="resource-card" target="_blank">
+      <div class="resource-type">Drive · 2027 Cycle</div>
+      <h4 class="resource-title">Self-Study &amp; Evidence (2027)</h4>
+      <p class="resource-desc">The live working folder. Standards 1–6, the evidence room, and the meeting-minutes template.</p>
+    </a>
+
+    <a href="https://docs.google.com/document/d/14BXdnDbERqqwLHnRBQYg3v4xHcrZEMib23j6IjmVNs0/copy" class="resource-card" target="_blank">
+      <div class="resource-type">Template · Click to copy</div>
+      <h4 class="resource-title">Indicator Response Template</h4>
+      <p class="resource-desc">Three-part SAIS structure (Affirm · Describe · Evidence) with rating, strengths, and improvement fields. <strong>Click to create your own editable copy</strong> — rename it <code style="font-family:'JetBrains Mono',monospace;font-size:12px;background:var(--cream);padding:1px 4px;">Standard-X-Indicator-X.X-OWNER</code> and save in your committee folder.</p>
+    </a>
+
+    <a href="https://docs.google.com/document/d/1D2sx5m9P9QqXx9JGx1-77HurrN-2aFdEoZEAk74grVA/copy" class="resource-card" target="_blank">
+      <div class="resource-type">Template · Click to copy</div>
+      <h4 class="resource-title">Friday Minutes Template</h4>
+      <p class="resource-desc">Standing agenda with attendees, last-week review, round-robin, deep-work block, cross-committee surface, and action-items table. <strong>Click to create your own editable copy</strong> for this Friday's meeting — file in committee folder within 48 hours.</p>
+    </a>
+
+    <a href="https://drive.google.com/drive/folders/1ed-kM9qQgzcVlnxDypn6bQvhXIvdi0vw" class="resource-card" target="_blank">
+      <div class="resource-type">Drive · 2022 Archive</div>
+      <h4 class="resource-title">2022 Cycle (Reference)</h4>
+      <p class="resource-desc">The full archive of the last visit. Self-study, evidence, improvement plans, reports. Use it as a model — but check whether the practice still exists.</p>
+    </a>
+
+    <a href="https://drive.google.com/drive/folders/1zB8Ck95cBzEBuaAVgJ6N5Ay8I1F0kebL" class="resource-card" target="_blank">
+      <div class="resource-type">Drive · 2022 Plans</div>
+      <h4 class="resource-title">2022 Improvement Plans</h4>
+      <p class="resource-desc">Alumni Society, Professional Development, Digital Library. Read these — the visiting team will ask what happened to each.</p>
+    </a>
+
+    <a href="https://sais.org/accreditation/" class="resource-card" target="_blank">
+      <div class="resource-type">External · SAIS</div>
+      <h4 class="resource-title">SAIS Accreditation Documentation</h4>
+      <p class="resource-desc">Official SAIS standards, indicator language, and protocol. Authoritative source when there's a question about wording.</p>
+    </a>
+
+  </div>
+
+  <div style="margin-top:64px;">
+    <div class="section-header" style="margin-bottom:32px;">
+      <div class="section-num">·</div>
+      <h3 style="font-family:'Fraunces',serif;font-size:32px;font-weight:500;color:var(--navy);margin:0;letter-spacing:-0.015em;">Official SAIS contacts <em style="font-style:italic;color:var(--navy-soft);font-weight:300;">for this visit.</em></h3>
+    </div>
+
+    <div class="contacts">
+
+      <div class="contact-card">
+        <div class="contact-role">Head of School</div>
+        <h4 class="contact-name">Ms. Lisa Shillady</h4>
+        <p class="contact-title">Head of School<br>Westhill Institute SC</p>
+        <p class="contact-detail">Col. Prados de la Montaña, Mexico<br><a href="mailto:lshillady@wi.edu.mx">lshillady@wi.edu.mx</a></p>
+      </div>
+
+      <div class="contact-card">
+        <div class="contact-role">Accreditation Coordinator</div>
+        <h4 class="contact-name">Ktyall Malik</h4>
+        <p class="contact-title">Accreditation Coordinator<br>Academic Director</p>
+        <p class="contact-detail">(525) 521-9947 x76<br><a href="mailto:ktyall.malik@wi.edu.mx">ktyall.malik@wi.edu.mx</a></p>
+      </div>
+
+      <div class="contact-card">
+        <div class="contact-role">Visiting Team Chair</div>
+        <h4 class="contact-name">Ms. Leah Hannon</h4>
+        <p class="contact-title">Chair · Head of Middle School<br>Mount Vernon School · Atlanta, GA</p>
+        <p class="contact-detail">(404) 252-3448<br><a href="mailto:lhannon@mountvernonschool.org">lhannon@mountvernonschool.org</a></p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ========= FOOTER ========= -->
+<footer>
+  <div class="footer-inner">
+    <div>
+      <div class="footer-brand">Westhill Institute · <em>SAIS 2027</em></div>
+      <p class="footer-tag">This hub is the single source of truth for the self-study cycle. Updated as committees report. Questions, gaps, complaints — message Ktyall directly.</p>
+    </div>
+    <div>
+      <h4>Quick Links</h4>
+      <ul>
+        <li><a href="#process">The process</a></li>
+        <li><a href="#standards">Standards</a></li>
+        <li><a href="#committees">Committees</a></li>
+        <li><a href="#timeline">Timeline</a></li>
+        <li><a href="#resources">Resources</a></li>
+      </ul>
+    </div>
+    <div>
+      <h4>Director of Academics</h4>
+      <ul>
+        <li>Ktyall Malik</li>
+        <li><a href="mailto:ktyall.malik@wi.edu.mx">ktyall.malik@wi.edu.mx</a></li>
+        <li>Office hours by appointment</li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span>Westhill Institute · Mexico City</span>
+    <span>SAIS Reaffirmation · 2022 → 2027</span>
+  </div>
+</footer>
+
+<script>
+// Countdown to Feb 23, 2027 (SAIS portal upload deadline)
+(function() {
+  const target = new Date('2027-02-23T23:59:00-06:00').getTime();
+  const el = document.getElementById('countdown');
+  function tick() {
+    const now = Date.now();
+    const days = Math.max(0, Math.floor((target - now) / (1000 * 60 * 60 * 24)));
+    el.innerHTML = days + '<small>until SAIS submission</small>';
+  }
+  tick();
+  setInterval(tick, 1000 * 60 * 60);
+})();
+</script>
+
+</body>
+</html>
